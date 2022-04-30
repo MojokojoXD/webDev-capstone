@@ -1,0 +1,49 @@
+#landing{
+    display: flex;
+    position: absolute;
+    height: 100vh;
+    min-height: 700px;
+    width: 100vw;
+    min-width: 50%;
+    align-items: flex-end;
+    background-image: linear-gradient(rgb(0,0,0,0.5) 30%,transparent),url(./landingPage/images/landing_background2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 0;
+}
+
+.main-landing{
+    background-color: white;
+    position: relative;
+    width: 98%;
+    //min-width: 600px;
+    height: 90%;
+    min-height: 700px;
+    margin: 0 auto;
+    background:radial-gradient(circle at center left, #F0F1F2 30%, white, transparent 60%),
+    linear-gradient(to right, white 70%, transparent 70%),
+    linear-gradient(to bottom, white 70%, transparent 70%),
+    linear-gradient(to top, white 50px, transparent 50px),
+    linear-gradient(to left, rgb(255,255,255) 50px, transparent 50px);
+
+
+    
+}
+
+.logo{
+    position: relative;
+    height: 200px;
+    width: 200px;
+    z-index: 1;
+}
+
+.landing-outlet{
+    position: absolute;
+    top: 150px;
+    left: 2%;
+    width: 95%;
+    height: 75%;
+    border-top: 2px $color_4 solid;
+    z-index: 2;
+    border-radius: 0;
+}

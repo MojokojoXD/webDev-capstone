@@ -1,0 +1,92 @@
+#dashboard-user{
+
+ height: 100vh;
+ width: 100vw;
+ 
+ nav{
+     height: 10vh;
+ }
+
+ .navbar{
+     height: fit-content;
+     margin-top: 20px;
+     
+     p{
+         padding: 0;
+         color: black;
+        }
+    }
+    
+}
+
+.logo{
+    position: absolute;
+    top: -8%;
+
+}
+
+
+
+.dash-body{
+    position: absolute;
+    display:flex;
+    top: 10%;
+    border-top: 5px solid $color_4;
+    height: 90%;
+    min-height: 500px;
+    width: 100%;
+    min-width: 800px;
+    z-index: 1;
+    align-items: center;
+    background-color: $primary_color;
+}
+
+
+.module-body{
+    height: 80%;
+    width: 500px;
+    padding: 10px;
+    background-color: $color_5;
+    overflow-y: scroll;
+}
+
+.summary{
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    
+
+    h2,p,h3{
+        margin-bottom: 25px;
+    }
+    
+    img{
+        height: 50%;
+        width: 30%;
+        min-width: 200px;
+        float: right;
+        border-radius: 5px;
+    }
+
+    h3{
+        font-weight: 300;
+        color: $color_1;
+    }
+
+    h2{
+        text-decoration: underline;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    iframe{
+        display: block;
+        width: 450px;
+        height: 350px;
+        margin: auto;
+    }
+
+}

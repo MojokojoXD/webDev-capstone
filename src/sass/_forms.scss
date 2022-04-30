@@ -1,0 +1,184 @@
+.submit{
+    cursor: pointer;
+    background-color: rgb(162, 162, 162);
+}
+
+.submit:hover{
+    background-color: $color_2;
+}
+
+
+.register{
+    height: 100%;
+    width: 50%;
+    min-width: 400px;
+
+    p{
+        font-weight: 400;
+    }
+
+    form{
+        display: flex;
+        justify-content: space-between;
+        height: 80%;
+        input,
+        select {
+            outline: none;
+            width: 90%;
+            height: 8%;
+            min-height: 30px;
+            padding: 5px;
+            font-size: 1em;
+            background-color: $secondary_color;
+            outline: none;
+            border-radius: 2px;
+            border-style: hidden;
+            border-bottom: 3px solid transparent;
+        }
+        
+        input:focus {
+            border-bottom: 3px solid $color_4;
+        }
+    }
+
+    input[type="date"]:before {
+        content: attr(placeholder) !important;
+        color: #919191;
+        font-family: $h1_font;
+        margin-right: 0.5em;
+    }
+    
+    input[type="date"]:focus:before,
+    input[type="date"]:valid:before {
+        content: "";
+    }
+}
+
+.errors{
+    color: $color_1;
+    width: 45%;
+    height: 50%;
+    order: 2;
+    font-size: 90%;
+    margin-left: 10px;
+
+    p{
+        font-weight: bold;
+        padding: 0;
+    }
+
+    li{
+        font-weight: 300;
+        list-style-position: inside;
+        text-align: left;
+        margin-left: 5px;
+    }
+}
+
+
+.form-bio-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    order: 1;
+    background-color: $secondary_color;
+    border-radius: 4px;
+    box-shadow: 3px 3px 20px gray;
+    border: 1px solid $color_4;
+    background-image: linear-gradient(to top,$primary_color,#797472,transparent),url('https://images.unsplash.com/photo-1495968283540-e1df41995ba6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bWlkZGxlJTIwc2Nob29sfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    button{
+        padding: 2px 10px;
+    }
+}
+
+.tab2{
+    height: 60%;
+    width: 50%;
+    min-width: 250px;
+
+    p{
+        align-self: flex-start;
+        padding: 0;
+        line-height: 1;
+        margin-left: 5%;
+        color:$secondary_color;
+
+    }
+
+    div{
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+
+        button{
+            width: fit-content;
+            font-size: 65%;
+            font-weight: bold;
+        }
+    }
+}
+
+.added{
+    background-image: none;
+    background-color: $secondary_color;
+    color: $primary_color;
+}
+
+.login{
+    height:100%;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    width: 65%;
+    max-width: 500px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    height: 50%;
+    border-radius: 20px 20px 20px 0;
+    background: 
+    linear-gradient(-140deg,transparent 90%,$color_4 90%),
+    linear-gradient(to left,rgb(0,0,0,80%) 1%,#7D7D7A,#8E8D8D,#A1A2A3,#B3B6B5,#BEC0C2 40%,transparent),
+    url('https://images.unsplash.com/photo-1514355315815-2b64b0216b14?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+    background-size: contain;
+    //background-position-x: -50%;
+    background-repeat: no-repeat;
+    border-top: 1px solid $color_4;
+
+    div{
+        margin-right: 4%;
+        width:  45%;
+        order: 0;
+        height: fit-content;
+    }
+
+    p{
+        font-size: 100%;
+    }
+
+    input{
+        border: none;
+        display: block;
+        width: 45%;
+        height: 13%;
+        margin-right: 4%;
+        padding: 0 3px;
+        border-radius: 10px 5px 5px 0;
+        background-color: $secondary_color;
+        font-size: 16px;
+    }
+
+    ::placeholder{
+        color: grey;
+    }
+}

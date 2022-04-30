@@ -1,0 +1,19 @@
+#home{
+    height: 40%;
+    width: fit-content;
+    padding-right: 10px;
+    border-right: 2px $color_4 solid;
+    font-size: 100%;
+    border-radius: 0;
+
+    button{
+        margin-top: 10px;
+        //float: right;
+        margin-right: 2%;
+        background-image: radial-gradient(ellipse at center bottom, $color_2 85%,$color_3);
+    }
+    
+    button:hover{
+        background-image: radial-gradient(ellipse at center bottom, $color_3 85%,$color_2);
+    }
+}

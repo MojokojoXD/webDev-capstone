@@ -1,0 +1,112 @@
+//Navigation styling
+
+.navbar{
+    display: flex;
+    flex-direction: column;
+    float: right;
+    margin: 50px 50px 0 0;
+    color: #D9A404;
+    padding-right: 8px;
+
+    a{
+        font-weight: 500;
+        font-family: $h1_font;
+    }
+}
+
+.link{
+    padding:2px 0 2px 0;
+    text-align: end;
+    color: $color_1;
+    text-decoration: underline;
+    transition: all .1s ease-in;
+}
+
+.inactive{
+    color: $color_2;
+    text-decoration: none;
+}
+
+
+.module-bar {
+    height: 90%;
+    width: 15%;
+    min-width: 250px;
+    background-color: #D7B288;
+    background-image:
+        linear-gradient(to top, rgb(200, 200, 200) 1%, white 8%, white 80%, transparent 80%),
+        linear-gradient(to right, transparent 90%, $color_1 90%),
+        linear-gradient(to top, transparent 95%, $color_2 95%),
+        linear-gradient(to left, transparent 90%, $color_4 90%),
+        linear-gradient(to right, $primary_color 50%, transparent 50%);
+    border-bottom: 1px solid $color_5;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+}
+.module-accordion {
+    position: relative;
+    top: 20%;
+    height: 80%;
+    width: 100%;
+
+    h3{
+        font-weight: 400;
+        text-align:center;
+        margin: 20px 0;
+    }
+}
+
+.accordion{
+    width: 95%;
+    padding: 0 2%;
+    margin-left: 2px;
+}
+
+
+.accordion-title{
+    cursor: pointer;
+    height: 30%;
+    transition: all 0.1s ease-in-out;
+    border-top: 2px $color_1 solid;
+
+    span{
+        margin-right: 5px;
+    }
+}
+
+.active{
+    border-radius: 2px;
+    letter-spacing: 1px;
+    color: $secondary_color;
+    background-color: $color_2;
+    background: radial-gradient(circle at center bottom,$color_3,$color_2);
+
+    span {
+        color: $secondary_color;
+    }
+}
+
+.accordion-content{
+    padding: 2% 10%;
+
+    p{
+        text-align:end;
+        cursor: pointer;
+        letter-spacing: 0;
+        transition: letter-spacing .2s ease-in-out;
+    }  
+    
+    p:hover{
+        letter-spacing: 1.5px;
+    }
+
+}
+
+.subscript{
+    position: absolute;
+    top: 90%;
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+}

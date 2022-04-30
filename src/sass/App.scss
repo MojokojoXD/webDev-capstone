@@ -1,0 +1,77 @@
+$primary_color: black;
+$secondary_color: white;
+$color_1: #BF0436;
+$color_2: #0476D9;
+$color_3: #049DD9;
+$color_4: #D9A404;
+$color_5: #D9B68B;
+$h1_font: 'lato',verdana,arial,sans-serif;
+$h2_font: 'sen',verdana,arial,sans-serif;
+
+
+h1{
+    font-size:calc(32px + 100%);
+    font-weight: 300;
+    padding: 5px;
+    color: $color_1;
+    font-family: $h1_font;
+    letter-spacing: 1px;
+}
+
+p{
+    font-family: $h1_font;
+    padding: 5px;
+    line-height: 1.5;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+button{
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.2em;
+    color: white;
+    font-weight: 500;
+    cursor:pointer;
+    background-image: radial-gradient(ellipse at center bottom, $color_2 85%, $color_3);
+}
+
+button:hover {
+    background-image: radial-gradient(ellipse at center bottom, $color_3 85%, $color_2);
+}
+
+.loading{
+    position: fixed ;
+    top: 30vh;
+    left: 45%;
+    background-color: transparent;
+}
+
+input,select{
+    display: block;
+    margin: 10px 2px;
+}
+
+::selection{
+    background: $color_5;
+}
+
+::-moz-selection{
+    background-color: $color_5
+}
+
+::placeholder{
+    color: gray;
+}
+
+
+
+
+@import 'landing.scss';
+@import 'navigation.scss';
+@import 'home.scss';
+@import 'forms.scss';
+@import 'dashboard.scss';
+

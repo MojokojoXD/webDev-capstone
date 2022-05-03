@@ -38,13 +38,13 @@ export default function ModuleBar({ modules, getPageNo,displayModule }) {
 
 const homeButton ={
     textAlign: 'left',
-    height: '7%',
+    height: '35px',
     width: '92%',
     padding: '0 10%',
     marginLeft: '2%',
     fontSize: '16px',
     borderBottom: '5px',
-    borderRadius: '0',
+    borderRadius: '5px 5px 0 0',
     border: '1px inset white',
     fontWeight: '500'
 }

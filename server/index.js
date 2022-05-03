@@ -29,6 +29,7 @@ app.use(express.static(publicPath));
 //     origin: ['http://localhost:4000','http://localhost:3000'],
 //     credentials:true,
 // }));
+
 app.use(session({
     secret: SECRET,
     store: mojoMath,

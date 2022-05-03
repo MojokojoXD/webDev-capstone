@@ -7,9 +7,15 @@
  
  nav{
      height: 10vh;
+     min-height: 50px;
      background-color: $secondary_color;
      border-radius: 0;
     box-shadow: rgba(240, 240, 240, 0.35) 0px 5px 15px;
+
+    img{
+        position: absolute;
+        top: -5%;
+    }
  }
 
  .navbar{
@@ -24,10 +30,7 @@
     
 }
 
-.logo{
-    position: absolute;
-    top: -8%;
-}
+
 
 .background{
     position: absolute;
@@ -65,7 +68,6 @@
     align-content: space-between;
     height: 90%;
     width: 75%;
-    overflow-y: scroll;
     margin-left: 20px;
 }
 
@@ -77,6 +79,8 @@
     background-color: $color_5;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     
 
     h2,p,h3{
@@ -111,6 +115,14 @@
     }
 
 }
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.summary::-webkit-scrollbar {
+    display: none;
+}
+
+
 
 .welcome{
     background-image: url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80');

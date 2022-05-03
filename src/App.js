@@ -24,7 +24,7 @@ function App() {
       <authContext.Provider value={{getAuth: getAuth}}>
 
         <Routes>
-          <Route path='/' element={isAuth ? <Navigate to='/dashboard'/> : <Landing/>}>
+          <Route path='/' element={isAuth ? <Dashboard/> :  <Landing/>}>
             <Route path='/' element={<Home/> }/>
             <Route path='login' element={<Login/>}/>
             <Route path='register' element={<Register/>}/>

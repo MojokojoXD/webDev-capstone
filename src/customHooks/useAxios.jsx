@@ -49,6 +49,7 @@ export default function useAxios(operation,body){
             {withCredentials:true});
             setError(false);
         }catch(error){
+            console.log('I am here')
             setError(true);
         }finally{
             setloading(false);

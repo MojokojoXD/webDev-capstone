@@ -56,7 +56,7 @@ session: true }), login)
 app.use((req,res,next) =>{
     if (req.isAuthenticated()) {
         next();
-    } else res.redirect('/login');
+    } else res.redirect('/');
 })
 
 

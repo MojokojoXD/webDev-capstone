@@ -5,13 +5,13 @@ import logo from "../landingPage/images/logo.png";
 import ModuleBar from "../navigation/ModuleBar";
 import ModuleBody from "./ModuleBody";
 import useAxios from "../customHooks/useAxios";
-import { useEffect,useState, createContext } from "react";
+import { useEffect,useState } from "react";
 
 let titles;
 
 export default function DashboardUser() {
   const [operation,setOperation] = useState('getModules')
-  const [displayModule, setDisplayModule] = useState('');
+  const [displayModule, setDisplayModule] = useState({title:'HOME',lesson:''});
 
 
 //react-router-dom
@@ -39,7 +39,7 @@ export default function DashboardUser() {
           })
         }  
 
-  },[loading])
+  },[loading,operation])
 
 
 
@@ -49,6 +49,7 @@ export default function DashboardUser() {
   
   return (
     dashData && <section id="dashboard-user">
+    <div className="background"></div>
      <nav>
         <Link to="/">
             <img src={logo} alt="logo" className="logo" />
@@ -57,11 +58,12 @@ export default function DashboardUser() {
      </nav>
       <div className="dash-body">
 
-            <ModuleBar lessons={titles} modules={modulesNo} getPageNo={getPageNo}/> : <p>loading</p>
-
+            <ModuleBar lessons={titles} modules={modulesNo} getPageNo={getPageNo} displayModule={displayModule}/> 
 
 
             <ModuleBody dashData={dashData} displayModule={displayModule}/>
+
+      
       </div>
     </section>
   );

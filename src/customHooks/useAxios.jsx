@@ -1,8 +1,9 @@
 import axios from 'axios';
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useContext } from 'react';
+import { authContext } from '../App';
 import { useNavigate } from 'react-router-dom';
 
-const baseURL = "http://localhost:4000";
+const baseURL = "http://localhost:3000";
 
 export default function useAxios(operation,body){
     const[dashData,setDashData] =useState('')
@@ -10,7 +11,7 @@ export default function useAxios(operation,body){
     const [error,setError] = useState(false);
     const [loading,setloading] = useState(true);
     const [serverErr,setServerErr] = useState('');
-    const [done,setDone] =useState(true)
+    const {getAuth} = useContext(authContext);
     const navigate = useNavigate();
 
     const getCountries = async() => {
@@ -44,7 +45,7 @@ export default function useAxios(operation,body){
         const{username,password} = body;
 
         try{
-            await axios.post(`${baseURL}/login`,{username,password},
+            await axios.post(`/login`,{username,password},
             {withCredentials:true});
             setError(false);
         }catch(error){
@@ -57,11 +58,13 @@ export default function useAxios(operation,body){
     
     const auth = async () => {
       try {
-        const { data:authRes } = await axios.get(`${baseURL}/auth`,{withCredentials:true});
-        
+        const { data:authRes } = await axios.get(`/auth`,{withCredentials:true});
         setData(authRes)
+        getAuth(true)
       } catch (err) {
-        setError(true);
+          setError(true);
+          getAuth(false);
+          navigate('/',{replace:true})
       } finally{
           setloading(false);
       }
@@ -70,8 +73,7 @@ export default function useAxios(operation,body){
     const getModules = async () =>{
         try{
 
-            const {data:moduleRes} =await axios.get(`${baseURL}/modules?user_id=${body}`,{withCredentials:true})
-
+            const {data:moduleRes} =await axios.get(`/modules?user_id=${body}`,{withCredentials:true})
             setData(moduleRes[0])
 
         }catch(err){
@@ -87,13 +89,40 @@ export default function useAxios(operation,body){
         const {lesson} = operation;
 
         try{
-            const {data:lessons} = await axios.post(`${baseURL}/retrievelessons`,{lesson:lesson},{withCredentials:true});
+            const {data:lessons} = await axios.post(`/retrievelessons`,{lesson:lesson},{withCredentials:true});
 
             setDashData(lessons);
         }catch(err){
             setError(true);
         }finally{
             setloading(false)
+        }
+    }
+
+
+    const logOut = async() =>{
+        try {
+            await axios.get(`/logout`,{withCredentials:true})
+        
+        } catch (error) {
+            navigate('/login',{replace:true});
+            setError(true);
+        }
+    }
+
+    const getQuiz = async() => {
+        setData(state => '');
+        setError(state => false);
+        setloading(state => false);
+        try {
+            const {data:quiz} = await axios.get(`/retrieve-quiz/${body}`,{withCredentials:true});
+            setData(quiz)
+
+            
+        } catch (error) {
+            setError(true);
+        } finally{
+            setloading(false);
         }
     }
     
@@ -119,7 +148,18 @@ export default function useAxios(operation,body){
         else if (operation.operation === 'getLessonsData'){
             getLessonData();
         }
+        else if(operation === 'logout'){
+            logOut();
+        }
+        //eslint-disable-next-line
     },[operation])
+
+    useEffect(()=> {
+        if (operation === 'getQuiz'){
+            getQuiz()
+        }
+        //eslint-disable-next-line
+    },[body])
     
     
     return {data,dashData,error,loading,serverErr};

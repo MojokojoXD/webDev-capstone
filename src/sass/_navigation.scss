@@ -31,6 +31,7 @@
 .module-bar {
     height: 90%;
     width: 15%;
+    z-index: 1;
     min-width: 250px;
     background-color: #D7B288;
     background-image:
@@ -60,7 +61,8 @@
 .accordion{
     width: 95%;
     padding: 0 2%;
-    margin-left: 2px;
+    margin-left: 1px;
+    margin-bottom: 1px;
 }
 
 
@@ -68,20 +70,28 @@
     cursor: pointer;
     height: 30%;
     transition: all 0.1s ease-in-out;
-    border-top: 2px $color_1 solid;
-
+    color: $secondary_color;
+    background-image: radial-gradient(ellipse at center bottom, $color_2 85%, $color_3);
+    border-radius: 5px 5px 0 0;
+    
+    p{
+        font-weight: bold;
+    }
     span{
         margin-right: 5px;
     }
+}
+
+.accordion-title:hover {
+    background-image: radial-gradient(ellipse at center bottom, $color_3 85%, $color_2);
 }
 
 .active{
     border-radius: 2px;
     letter-spacing: 1px;
     color: $secondary_color;
-    background-color: $color_2;
-    background: radial-gradient(circle at center bottom,$color_3,$color_2);
-
+    background: radial-gradient(circle at center bottom, $color_3 80%,$color_2);
+    
     span {
         color: $secondary_color;
     }
@@ -91,7 +101,7 @@
     padding: 2% 10%;
 
     p{
-        text-align:end;
+        text-align:center;
         cursor: pointer;
         letter-spacing: 0;
         transition: letter-spacing .2s ease-in-out;
@@ -99,6 +109,7 @@
     
     p:hover{
         letter-spacing: 1.5px;
+        font-weight: bold;
     }
 
 }

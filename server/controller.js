@@ -35,7 +35,6 @@ module.exports = {
       decimals,
       percentages,
     } = body;
-
     sequelize
       .query(
         `
@@ -65,7 +64,7 @@ module.exports = {
                 lessons(user_id,fractions,decimals,percentages)
                 SELECT user_id,${fractions},${decimals},${percentages}
                 FROM users
-                WHERE lname = '${lname}'
+                WHERE lname = lower('${lname}')
                 AND fname = lower('${fname}');
             `
               )
@@ -87,6 +86,7 @@ module.exports = {
   sequelize,
 
   getModules: (req, res) => {
+
     const { user_id } = req.query;
 
     sequelize
@@ -124,4 +124,21 @@ module.exports = {
         res.sendStatus(500);
     })
   },
+
+  getQuiz: (req,res) => {
+    const {lessonId} = req.params;
+    sequelize.query(`
+        SELECT *
+        FROM assessments
+        WHERE lesson_id = '${parseInt(lessonId)}';
+    `).then(dbres=> {
+
+      if(dbres[0][0].length === 0){
+        res.sendStatus(404);
+      }else res.status(200).send(dbres[0]);
+    }).catch(err => {
+      console.log(err);
+      res.sendStatus(404);
+    })
+  }
 };

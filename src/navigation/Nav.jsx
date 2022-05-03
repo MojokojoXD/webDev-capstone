@@ -1,6 +1,9 @@
 
 import { NavLink } from "react-router-dom";
-import { TiArrowRightThick, IoMdLogOut } from "react-icons/all";
+import { TiArrowRightThick } from "react-icons/all";
+import useAxios from "../customHooks/useAxios";
+import { authContext } from "../App";
+import { useContext } from "react";
 
 const navLinks = [
     {link:'HOME',location: '/'},
@@ -8,8 +11,17 @@ const navLinks = [
     {link:'REGISTER',location: 'register'}
 ];
 
+let operation = '';
 
 export default function Nav({option,params}){
+    useAxios(operation);
+    const resetAuth = useContext(authContext) ;
+
+
+    const logout = () => {
+        operation = 'logout';
+        resetAuth(false);
+    }
 
     
     return(
@@ -25,7 +37,9 @@ export default function Nav({option,params}){
 
         <div className="navbar">
                 <p>Welcome, {params}</p>
-                <NavLink to='/logout' className={'link inactive'}>Logout
+                <NavLink to='/login'
+                onClick={logout}
+                 className={'link inactive'}>Logout
                 </NavLink>
         </div>
     )

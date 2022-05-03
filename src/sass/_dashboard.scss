@@ -2,9 +2,14 @@
 
  height: 100vh;
  width: 100vw;
+ min-width: 700px;
+ background-color: transparent;
  
  nav{
      height: 10vh;
+     background-color: $secondary_color;
+     border-radius: 0;
+    box-shadow: rgba(240, 240, 240, 0.35) 0px 5px 15px;
  }
 
  .navbar{
@@ -22,39 +27,54 @@
 .logo{
     position: absolute;
     top: -8%;
-
 }
 
-
+.background{
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    z-index: -1;
+    background-image:
+    linear-gradient(to right,rgb(0,0,0) 95%,transparent 95%),
+    linear-gradient(to bottom, transparent 80%,$color_4 80%,$color_4 90%,transparent 90%),
+    linear-gradient(to bottom,transparent 90%, $color_2 90%),
+    linear-gradient(to right,transparent 95%,$color_1 95%);
+    background-color: rgb(100, 100, 100);
+    filter: opacity(95%);
+}
 
 .dash-body{
     position: absolute;
     display:flex;
     top: 10%;
-    border-top: 5px solid $color_4;
+    //border-top: 1px solid $color_4;
     height: 90%;
+    z-index: 0;
     min-height: 500px;
-    width: 100%;
-    min-width: 800px;
-    z-index: 1;
+    min-width: 100%;
     align-items: center;
-    background-color: $primary_color;
+    //background-color: $primary_color;
+    border-radius: 0;
 }
 
 
-.module-body{
-    height: 80%;
-    width: 500px;
-    padding: 10px;
-    background-color: $color_5;
+.module-body,.welcome{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-between;
+    height: 90%;
+    width: 75%;
     overflow-y: scroll;
+    margin-left: 20px;
 }
 
 .summary{
     overflow-y: scroll;
-    height: 100%;
-    width: 100%;
+    height: 95%;
+    width: 500px;
     padding: 20px;
+    background-color: $color_5;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     
@@ -64,7 +84,7 @@
     }
     
     img{
-        height: 50%;
+        height: 40%;
         width: 30%;
         min-width: 200px;
         float: right;
@@ -87,6 +107,123 @@
         width: 450px;
         height: 350px;
         margin: auto;
+        border: none;
     }
 
+}
+
+.welcome{
+    background-image: url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80');
+    background-size: cover;
+    width: 70%;
+}
+
+
+.module-enter {
+    opacity: 0;
+    transform: translateY(1000px);
+}
+
+.module-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 500ms ease-in-out;
+}
+
+.module-exit {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.module-exit-active {
+    transform: translateX(-2000px);
+    transition: transform 500ms
+    ease-in-out;
+}
+
+.utility{
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+    width: 500px;
+
+    &>div{
+        height: 50%;
+    }
+
+
+    &>:nth-child(2){
+        display: flex;
+        flex-direction:column;
+
+        h3{
+            color:$secondary_color;
+            margin: auto;
+            color:$color_3;
+
+            span{
+                font-size: 12px;
+                color: $secondary_color;
+            }
+        }
+
+    }
+}
+
+.assessments{
+    height: 100%;
+    width: 100%;
+    background-color:$secondary_color;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+    h1{
+        font-size: 24px;
+    }
+}
+
+.quiz-form{
+    padding: 15px;
+    h1{
+        text-align: center;
+    }
+    form{
+        height: 40%;
+        width: 80%;
+        //padding: 0 0 0 20px;
+        margin: auto;
+
+        p{
+            margin: 0;
+            padding: 0;
+        }
+
+        h6{
+            margin: 15px;
+        }
+        
+        input{
+            margin: 0 5px 5px 15px;
+            display: inline;
+        }
+
+        button, input[type=submit]{
+            font-size: 12px;
+            height:fit-content;
+            padding: 5px;
+            border: 2px outset grey;
+        }
+
+        span{
+            margin-left: 20px;
+        }
+
+        h5{
+            display: inline;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+    }
+
+   
 }

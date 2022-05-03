@@ -125,6 +125,7 @@ input, select {
 .module-bar {
   height: 90%;
   width: 15%;
+  z-index: 1;
   min-width: 250px;
   background-color: #D7B288;
   background-image: linear-gradient(to top, #c8c8c8 1%, white 8%, white 80%, transparent 80%), linear-gradient(to right, transparent 90%, #BF0436 90%), linear-gradient(to top, transparent 95%, #0476D9 95%), linear-gradient(to left, transparent 90%, #D9A404 90%), linear-gradient(to right, black 50%, transparent 50%);
@@ -147,25 +148,34 @@ input, select {
 .accordion {
   width: 95%;
   padding: 0 2%;
-  margin-left: 2px;
+  margin-left: 1px;
+  margin-bottom: 1px;
 }
 
 .accordion-title {
   cursor: pointer;
   height: 30%;
   transition: all 0.1s ease-in-out;
-  border-top: 2px #BF0436 solid;
+  color: white;
+  background-image: radial-gradient(ellipse at center bottom, #0476D9 85%, #049DD9);
+  border-radius: 5px 5px 0 0;
+}
+.accordion-title p {
+  font-weight: bold;
 }
 .accordion-title span {
   margin-right: 5px;
+}
+
+.accordion-title:hover {
+  background-image: radial-gradient(ellipse at center bottom, #049DD9 85%, #0476D9);
 }
 
 .active {
   border-radius: 2px;
   letter-spacing: 1px;
   color: white;
-  background-color: #0476D9;
-  background: radial-gradient(circle at center bottom, #049DD9, #0476D9);
+  background: radial-gradient(circle at center bottom, #049DD9 80%, #0476D9);
 }
 .active span {
   color: white;
@@ -175,13 +185,14 @@ input, select {
   padding: 2% 10%;
 }
 .accordion-content p {
-  text-align: end;
+  text-align: center;
   cursor: pointer;
   letter-spacing: 0;
   transition: letter-spacing 0.2s ease-in-out;
 }
 .accordion-content p:hover {
   letter-spacing: 1.5px;
+  font-weight: bold;
 }
 
 .subscript {
@@ -374,9 +385,14 @@ input, select {
 #dashboard-user {
   height: 100vh;
   width: 100vw;
+  min-width: 700px;
+  background-color: transparent;
 }
 #dashboard-user nav {
   height: 10vh;
+  background-color: white;
+  border-radius: 0;
+  box-shadow: rgba(240, 240, 240, 0.35) 0px 5px 15px;
 }
 #dashboard-user .navbar {
   height: fit-content;
@@ -392,40 +408,52 @@ input, select {
   top: -8%;
 }
 
+.background {
+  position: absolute;
+  height: inherit;
+  width: inherit;
+  z-index: -1;
+  background-image: linear-gradient(to right, black 95%, transparent 95%), linear-gradient(to bottom, transparent 80%, #D9A404 80%, #D9A404 90%, transparent 90%), linear-gradient(to bottom, transparent 90%, #0476D9 90%), linear-gradient(to right, transparent 95%, #BF0436 95%);
+  background-color: #646464;
+  filter: opacity(95%);
+}
+
 .dash-body {
   position: absolute;
   display: flex;
   top: 10%;
-  border-top: 5px solid #D9A404;
   height: 90%;
+  z-index: 0;
   min-height: 500px;
-  width: 100%;
-  min-width: 800px;
-  z-index: 1;
+  min-width: 100%;
   align-items: center;
-  background-color: black;
+  border-radius: 0;
 }
 
-.module-body {
-  height: 80%;
-  width: 500px;
-  padding: 10px;
-  background-color: #D9B68B;
+.module-body, .welcome {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-between;
+  height: 90%;
+  width: 75%;
   overflow-y: scroll;
+  margin-left: 20px;
 }
 
 .summary {
   overflow-y: scroll;
-  height: 100%;
-  width: 100%;
+  height: 95%;
+  width: 500px;
   padding: 20px;
+  background-color: #D9B68B;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 .summary h2, .summary p, .summary h3 {
   margin-bottom: 25px;
 }
 .summary img {
-  height: 50%;
+  height: 40%;
   width: 30%;
   min-width: 200px;
   float: right;
@@ -445,6 +473,197 @@ input, select {
   width: 450px;
   height: 350px;
   margin: auto;
+  border: none;
+}
+
+.welcome {
+  background-image: url("https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80");
+  background-size: cover;
+  width: 70%;
+}
+
+.module-enter {
+  opacity: 0;
+  transform: translateY(1000px);
+}
+
+.module-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 500ms ease-in-out;
+}
+
+.module-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.module-exit-active {
+  transform: translateX(-2000px);
+  transition: transform 500ms ease-in-out;
+}
+
+.utility {
+  display: flex;
+  flex-direction: column;
+  height: 95%;
+  width: 500px;
+}
+.utility > div {
+  height: 50%;
+}
+.utility > :nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+.utility > :nth-child(2) h3 {
+  color: white;
+  margin: auto;
+  color: #049DD9;
+}
+.utility > :nth-child(2) h3 span {
+  font-size: 12px;
+  color: white;
+}
+
+.assessments {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+.assessments h1 {
+  font-size: 24px;
+}
+
+.quiz-form {
+  padding: 15px;
+}
+.quiz-form h1 {
+  text-align: center;
+}
+.quiz-form form {
+  height: 40%;
+  width: 80%;
+  margin: auto;
+}
+.quiz-form form p {
+  margin: 0;
+  padding: 0;
+}
+.quiz-form form h6 {
+  margin: 15px;
+}
+.quiz-form form input {
+  margin: 0 5px 5px 15px;
+  display: inline;
+}
+.quiz-form form button, .quiz-form form input[type=submit] {
+  font-size: 12px;
+  height: fit-content;
+  padding: 5px;
+  border: 2px outset grey;
+}
+.quiz-form form span {
+  margin-left: 20px;
+}
+.quiz-form form h5 {
+  display: inline;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+.calculator {
+  height: 250px;
+  width: 400px;
+  padding: 5px;
+  background-color: white;
+  margin: 0 auto;
+  align-self: flex-end;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.buttons-display {
+  display: flex;
+  height: 60%;
+  width: 90%;
+  margin: auto;
+}
+.buttons-display div {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 50%;
+}
+.buttons-display button {
+  height: 20.5%;
+  width: 30%;
+  font-size: 100%;
+  border-radius: 5px;
+  margin: 0 1%;
+  border: none;
+  flex-grow: 1;
+  padding: 0;
+  background: radial-gradient(circle at bottom left, black 50%, #646464);
+}
+.buttons-display button:hover {
+  background: radial-gradient(circle at center bottom, #0476D9, #049DD9);
+  color: black;
+}
+
+.calc-enter {
+  transform: scale(0);
+}
+
+.calc-enter-active {
+  transform: scale(1);
+  transition: transform 500ms ease-in-out;
+}
+
+.calc-exit {
+  transform: scale(1);
+}
+
+.calc-exit-active {
+  transform: scale(0);
+  transition: transform 500ms ease-in-out;
+}
+
+.number-buttons .button-toggle {
+  color: black;
+  background-color: red;
+}
+
+.display {
+  height: 40%;
+  width: 90%;
+  background-color: grey;
+  margin: 5px auto;
+  border-radius: 10px;
+  padding: 5px;
+}
+.display div {
+  border-radius: 0;
+}
+
+.computation {
+  border-bottom: 2px solid black;
+  height: 65%;
+  padding: 0;
+}
+
+.render-input span {
+  height: 35%;
+  font-style: italic;
+}
+
+.display-nums {
+  font-size: 95%;
+}
+
+.operations .button-toggle {
+  color: black;
+  background-color: red;
 }
 
 /*# sourceMappingURL=App.css.map */

@@ -1,8 +1,8 @@
-import { useState, useContext, useEffect } from "react";
+import { useState } from "react";
+import { FaLightbulb,FaRegLightbulb } from 'react-icons/fa'
 
-export default function ModuleButtons({ title, content, setPageNo }) {
+export default function ModuleButtons({ title, content, setPageNo, displayModule }) {
   const [isActive, setIsActive] = useState(false);
-
 
   return (
     <div className="accordion">
@@ -20,7 +20,12 @@ export default function ModuleButtons({ title, content, setPageNo }) {
         </div>
         {isActive && (
           <div className="accordion-content">
-            <p onClick={()=>setPageNo({title,content})}>module {content}</p>
+            <p onClick={()=>setPageNo({title,content})}>
+
+            {displayModule.title === title && isActive ? <FaLightbulb/> : <FaRegLightbulb/>} 
+            module 
+            {content}
+            </p>
           </div>
         )}
       </div>

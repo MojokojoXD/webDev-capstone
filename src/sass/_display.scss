@@ -1,0 +1,30 @@
+.display{
+    height: 40%;
+    width: 90%;
+    background-color: grey;
+    margin: 5px auto;
+    border-radius: 10px;
+    padding: 5px;
+
+    div{
+        border-radius: 0;
+    }
+}
+
+.computation{
+        border-bottom: 2px solid black;
+        height: 65%;
+        padding: 0;
+    }
+
+.render-input{
+    span{
+        height:35%;
+        font-style: italic;
+    }
+}
+
+
+.display-nums{
+    font-size: 95%;
+}

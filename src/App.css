@@ -409,6 +409,7 @@ input, select {
 #dashboard-user .navbar {
   height: fit-content;
   margin-top: 20px;
+  box-sizing: 0;
 }
 #dashboard-user .navbar p {
   padding: 0;

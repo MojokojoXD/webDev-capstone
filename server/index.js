@@ -65,11 +65,11 @@ app.get('/auth', function(req,res){
     
     if(req.isAuthenticated()){
         res.status(200).send(req.user);
-    }else res.sendStatus(401)
+    }else res.redirect('/')
 })
 app.get('/logout',(req,res)=>{
     req.logOut();
-    res.sendStatus(200);
+    res.redirect('/login');
 })
 app.get('/modules',getModules);
 app.post('/retrievelessons',getLessons);

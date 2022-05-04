@@ -10,8 +10,8 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const {SECRET} = process.env
 const {register,login,sequelize,getModules,getLessons,getQuiz} = dbController;
-const publicPath = path.join(__dirname, "..", "build");
-const PORT = process.env.PORT || 3000;
+//const publicPath = path.join(__dirname, "..", "build");
+const PORT = process.env.PORT || 4000;
 
 const mojoMath = new SequelizeStore({
         db: sequelize
@@ -21,14 +21,14 @@ const mojoMath = new SequelizeStore({
 const app = express();
 
 app.use(express.json());
-app.use(express.static(publicPath));
+//app.use(express.static(publicPath));
 
 
 //middlewares
-// app.use(cors({
-//     origin: ['http://localhost:4000','http://localhost:3000'],
-//     credentials:true,
-// }));
+app.use(cors({
+    origin: ['http://localhost:4000','http://localhost:3000'],
+    credentials:true,
+}));
 
 app.use(session({
     secret: SECRET,
@@ -78,8 +78,8 @@ app.get('/retrieve-quiz/:lessonId',getQuiz)
 
 mojoMath.sync();
 
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(publicPath, "index.html"));
-});
+// app.get("/*", (req, res) => {
+//   res.sendFile(path.join(publicPath, "index.html"));
+// });
 
 app.listen(PORT, () => console.log('Port',PORT));

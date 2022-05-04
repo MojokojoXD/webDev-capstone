@@ -31,7 +31,7 @@ export default function useAxios(operation,body){
     const register = async () => {
         setloading(true);
         try{
-            const {data:registerRes} = await axios.post(`/register`,body)
+            const {data:registerRes} = await axios.post(`${baseURL}ndoe/register`,body)
             if(registerRes === 'Username taken'){setServerErr(registerRes)}
         }catch(error){
             console.log(error, 'test');
@@ -45,7 +45,7 @@ export default function useAxios(operation,body){
         const{username,password} = body;
 
         try{
-            await axios.post(`/login`,{username,password},
+            await axios.post(`${baseURL}ndoe/login`,{username,password},
             {withCredentials:true});
             setError(false);
         }catch(error){
@@ -59,7 +59,7 @@ export default function useAxios(operation,body){
     
     const auth = async () => {
       try {
-        const { data:authRes } = await axios.get(`/auth`,{withCredentials:true});
+        const { data:authRes } = await axios.get(`${baseURL}ndoe/auth`,{withCredentials:true});
         setData(authRes)
         getAuth(true)
       } catch (err) {
@@ -74,7 +74,7 @@ export default function useAxios(operation,body){
     const getModules = async () =>{
         try{
 
-            const {data:moduleRes} =await axios.get(`/modules?user_id=${body}`,{withCredentials:true})
+            const {data:moduleRes} =await axios.get(`${baseURL}ndoe/modules?user_id=${body}`,{withCredentials:true})
             setData(moduleRes[0])
 
         }catch(err){
@@ -90,7 +90,7 @@ export default function useAxios(operation,body){
         const {lesson} = operation;
 
         try{
-            const {data:lessons} = await axios.post(`/retrievelessons`,{lesson:lesson},{withCredentials:true});
+            const {data:lessons} = await axios.post(`${baseURL}ndoe/retrievelessons`,{lesson:lesson},{withCredentials:true});
 
             setDashData(lessons);
         }catch(err){
@@ -103,7 +103,7 @@ export default function useAxios(operation,body){
 
     const logOut = async() =>{
         try {
-            await axios.get(`/logout`,{withCredentials:true})
+            await axios.get(`${baseURL}ndoe/logout`,{withCredentials:true})
         
         } catch (error) {
             navigate('/login',{replace:true});
@@ -116,7 +116,7 @@ export default function useAxios(operation,body){
         setError(state => false);
         setloading(state => false);
         try {
-            const {data:quiz} = await axios.get(`/retrieve-quiz/${body}`,{withCredentials:true});
+            const {data:quiz} = await axios.get(`${baseURL}ndoe/retrieve-quiz/${body}`,{withCredentials:true});
             setData(quiz)
 
             

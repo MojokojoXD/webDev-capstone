@@ -31,7 +31,7 @@ export default function useAxios(operation,body){
     const register = async () => {
         setloading(true);
         try{
-            const {data:registerRes} = await axios.post(`${baseURL}/register`,body)
+            const {data:registerRes} = await axios.post(`/register`,body)
             if(registerRes === 'Username taken'){setServerErr(registerRes)}
         }catch(error){
             console.log(error, 'test');

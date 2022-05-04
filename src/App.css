@@ -123,11 +123,13 @@ input, select {
 }
 
 .module-bar {
-  height: 90%;
+  height: 100%;
   width: 15%;
-  z-index: 1;
+  z-index: 2;
+  align-self: flex-end;
   min-width: 250px;
   background-color: #D7B288;
+  border-radius: 0 5px 5px 0;
   background-image: linear-gradient(to top, #c8c8c8 1%, white 8%, white 80%, transparent 80%), linear-gradient(to right, transparent 90%, #BF0436 90%), linear-gradient(to top, transparent 95%, #0476D9 95%), linear-gradient(to left, transparent 90%, #D9A404 90%), linear-gradient(to right, black 50%, transparent 50%);
   border-bottom: 1px solid #D9B68B;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
@@ -383,21 +385,26 @@ input, select {
 }
 
 #dashboard-user {
+  position: fixed;
   height: 100vh;
   width: 100vw;
   min-width: 700px;
   background-color: transparent;
 }
 #dashboard-user nav {
+  position: absolute;
+  top: 0%;
+  width: calc(100% - 250px);
+  left: 250px;
+  z-index: 1;
   height: 10vh;
   min-height: 50px;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 0;
-  box-shadow: rgba(240, 240, 240, 0.35) 0px 5px 15px;
+  filter: grayscale(10%);
 }
 #dashboard-user nav img {
-  position: absolute;
-  top: -5%;
+  display: none;
 }
 #dashboard-user .navbar {
   height: fit-content;
@@ -405,12 +412,14 @@ input, select {
 }
 #dashboard-user .navbar p {
   padding: 0;
-  color: black;
+  font-weight: bold;
+  color: white;
 }
 
 .background {
   position: absolute;
-  height: inherit;
+  height: 100%;
+  width: 100%;
   width: inherit;
   z-index: -1;
   background-image: linear-gradient(to right, black 95%, transparent 95%), linear-gradient(to bottom, transparent 80%, #D9A404 80%, #D9A404 90%, transparent 90%), linear-gradient(to bottom, transparent 90%, #0476D9 90%), linear-gradient(to right, transparent 95%, #BF0436 95%);
@@ -421,10 +430,11 @@ input, select {
 .dash-body {
   position: absolute;
   display: flex;
-  top: 10%;
-  height: 90%;
+  height: 100vh;
+  width: 100vw;
   z-index: 0;
   min-height: 500px;
+  border-radius: 0;
   min-width: 100%;
   align-items: center;
   border-radius: 0;
@@ -434,15 +444,16 @@ input, select {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-content: space-between;
-  height: 90%;
+  align-content: flex-end;
+  align-self: flex-end;
+  height: 100%;
   width: 75%;
   margin-left: 20px;
 }
 
 .summary {
   overflow-y: scroll;
-  height: 95%;
+  height: 90%;
   width: 500px;
   padding: 20px;
   background-color: #D9B68B;
@@ -485,7 +496,8 @@ input, select {
 .welcome {
   background-image: url("https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80");
   background-size: cover;
-  width: 70%;
+  width: 85%;
+  margin-left: 0;
 }
 
 .module-enter {
@@ -511,8 +523,9 @@ input, select {
 
 .utility {
   display: flex;
+  align-self: flex-end;
   flex-direction: column;
-  height: 95%;
+  height: 85%;
   width: 500px;
 }
 .utility > div {

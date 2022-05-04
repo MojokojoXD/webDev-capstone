@@ -13,7 +13,7 @@ export function Utility({module}){
     return(
         <div className="utility">
             <div className='questions'>
-                <Assessments module={module.lesson_content_id} getToggleButton={getToggleButton} toggleButton={toggleButton}/>
+                <Assessments module={module.lesson_content_id} getToggleButton={getToggleButton} />
             </div>
 
             <CSSTransition

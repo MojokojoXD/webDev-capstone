@@ -27,7 +27,7 @@ export default function ModuleBody({displayModule,dashData}){
       setTimeout(()=> {
 
         if(displayModule.title !== 'HOME'){
-          const dataObj = dashData.filter(obj=> displayModule.title === obj.lesson_name)
+          const dataObj = dashData.filter(obj=> displayModule.title === obj.lesson_name && displayModule.module === obj.module_no)
           setShowMessage(dataObj);
 
         }

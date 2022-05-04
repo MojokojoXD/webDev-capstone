@@ -3,7 +3,7 @@ import useAxios from "../customHooks/useAxios";
 import QuizForm from "./QuizForm";
 
 
-export default function Assessments({module,getToggleButton,toggleButton}){
+export default function Assessments({module,getToggleButton}){
     const [moduleId, setModuleId] = useState(module);
     const {data,loading,error} = useAxios('getQuiz', moduleId);
 

@@ -134,6 +134,12 @@ input, select {
   border-bottom: 1px solid #D9B68B;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
+.module-bar img {
+  position: fixed;
+  top: 75%;
+  z-index: 2;
+  width: 250px;
+}
 
 .module-accordion {
   position: relative;
@@ -403,9 +409,6 @@ input, select {
   border-radius: 0;
   filter: grayscale(10%);
 }
-#dashboard-user nav img {
-  display: none;
-}
 #dashboard-user .navbar {
   height: fit-content;
   margin-top: 20px;
@@ -443,7 +446,6 @@ input, select {
 
 .module-body, .welcome {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-around;
   align-content: flex-end;
   align-self: flex-end;
@@ -459,6 +461,7 @@ input, select {
   padding: 20px;
   background-color: #D9B68B;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  align-self: flex-end;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -583,6 +586,9 @@ input, select {
   height: fit-content;
   padding: 5px;
   border: 2px outset grey;
+}
+.quiz-form form button {
+  margin-right: 5px;
 }
 .quiz-form form span {
   margin-left: 20px;

@@ -1,7 +1,6 @@
 // @ts-nocheck
 import Nav from "../navigation/Nav";
-import { useParams, Link } from "react-router-dom";
-import logo from "../landingPage/images/logo.png";
+import { useParams } from "react-router-dom";
 import ModuleBar from "../navigation/ModuleBar";
 import ModuleBody from "./ModuleBody";
 import useAxios from "../customHooks/useAxios";
@@ -23,7 +22,7 @@ export default function DashboardUser() {
 
   
   if(operation === 'getModules')titles = deriveTitle(moduleData);
-  const modulesNo = deriveModules(dashData,loading2);
+  const modulesNo = deriveModules(dashData);
 
   const getPageNo = (value) => {
     setDisplayModule(value);
@@ -46,14 +45,10 @@ export default function DashboardUser() {
   if (!dashData) return <h2>Loading...</h2>;
   if (error) return <h2>Something went wrong....Try again</h2>;
 
-  
   return (
     dashData && <section id="dashboard-user">
     <div className="background"></div>
      <nav>
-        <Link to="/">
-            <img src={logo} alt="logo" className="logo" />
-        </Link>
         <Nav option={"dashboard"} params={username} />
      </nav>
       <div className="dash-body">
@@ -79,11 +74,27 @@ const deriveTitle = (lessonObj) => {
 
 const deriveModules = (dataArr) => {
     if(dataArr){
-        return dataArr.map(el => {
-            return{
-                lesson: el.lesson_name,
-                module: el.module_no
+      const lesson_set = new Set();
+      const modules_obj = {};
+        dataArr.forEach(d => lesson_set.add(d.lesson_name));
+
+        lesson_set.forEach(lesson => {
+            modules_obj[lesson] = {
+              title:lesson,
+              modules: []
             }
-        })
+          });
+          
+          dataArr.forEach(d =>{
+            modules_obj[d.lesson_name].modules.push(d.module_no)
+          })
+          
+          return modules_obj
+        // return dataArr.map(el => {
+        //     return{
+        //         lesson: el.lesson_name,
+        //         module: el.module_no
+        //     }
+        // })
     }else return [];
 }

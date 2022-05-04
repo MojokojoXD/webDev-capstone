@@ -20,12 +20,16 @@ export default function ModuleButtons({ title, content, setPageNo, displayModule
         </div>
         {isActive && (
           <div className="accordion-content">
-            <p onClick={()=>setPageNo({title,content})}>
 
-            {displayModule.title === title && isActive ? <FaLightbulb/> : <FaRegLightbulb/>} 
-            module 
-            {content}
-            </p>
+          {content.map(c => {
+
+              return <p key={c} onClick={()=>setPageNo({title,module:c})}>
+
+              {displayModule.title === title && displayModule.module === c &&isActive ? <FaLightbulb/> : <FaRegLightbulb/>} 
+              module 
+              {c}
+              </p>
+          })}
           </div>
         )}
       </div>

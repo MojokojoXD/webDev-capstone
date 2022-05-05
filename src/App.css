@@ -31,9 +31,8 @@ button:hover {
 }
 
 .loading {
-  position: fixed;
-  top: 30vh;
-  left: 45%;
+  position: absolute;
+  margin: auto;
   background-color: transparent;
 }
 
@@ -228,13 +227,15 @@ input, select {
   background-image: radial-gradient(ellipse at center bottom, #049DD9 85%, #0476D9);
 }
 
-.submit {
+.submit-login {
   cursor: pointer;
-  background-color: #a2a2a2;
+  background-color: #049DD9;
 }
 
-.submit:hover {
-  background-color: #0476D9;
+.submit-login:hover {
+  background-color: black;
+  color: white;
+  border: 1px outset white;
 }
 
 .register {
@@ -411,6 +412,7 @@ input, select {
 }
 #dashboard-user .navbar {
   height: fit-content;
+  width: fit-content;
   margin-top: 20px;
   box-sizing: 0;
 }
@@ -529,11 +531,11 @@ input, select {
   display: flex;
   align-self: flex-end;
   flex-direction: column;
-  height: 85%;
+  height: 90%;
   width: 500px;
 }
 .utility > div {
-  height: 50%;
+  height: 45%;
 }
 .utility > :nth-child(2) {
   display: flex;
@@ -605,7 +607,6 @@ input, select {
   padding: 5px;
   background-color: white;
   margin: 0 auto;
-  align-self: flex-end;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 

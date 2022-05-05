@@ -5,6 +5,7 @@ import ModuleBar from "../navigation/ModuleBar";
 import ModuleBody from "./ModuleBody";
 import useAxios from "../customHooks/useAxios";
 import { useEffect,useState } from "react";
+import Spinner from '../misc/Spinner'
 
 let titles;
 
@@ -17,7 +18,7 @@ export default function DashboardUser() {
   const { username, id } = useParams();
 
 //custom hook
-  const { data: moduleData,dashData, error, loading,loading2 } = useAxios(operation, id);
+  const { data: moduleData,dashData, error, loading } = useAxios(operation, id);
 
 
   
@@ -42,7 +43,7 @@ export default function DashboardUser() {
 
 
 
-  if (!dashData) return <h2>Loading...</h2>;
+  if (!dashData) return <Spinner/>;
   if (error) return <h2>Something went wrong....Try again</h2>;
 
   return (

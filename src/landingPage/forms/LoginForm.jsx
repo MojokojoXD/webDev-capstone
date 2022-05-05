@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import useAxios from "../../customHooks/useAxios";
 import { Navigate } from "react-router-dom";
 
@@ -8,6 +8,11 @@ export default function LoginForm(){
     const [credentials,setCredentials] = useState({username:'',password:''});
     const{error,loading} = useAxios(operation, credentials);
     const [status, setStatus] = useState(ENUM.IDLE)
+
+
+    // useEffect(()=> {
+    //   if(error)setStatus(ENUM.SUBMITTED)
+    // },[error])
     
     const handleFocus = (e) => e.target.select(); 
 
@@ -17,10 +22,14 @@ export default function LoginForm(){
         e.preventDefault();
         setStatus(ENUM.SUBMITTING)
 
+
         if(!error || status === ENUM.SUBMITTED){
             setOperation(state=>'login')
             setStatus(ENUM.COMPLETED)
-        }else setStatus(ENUM.SUBMITTED);
+        }else{ 
+          setCredentials({ username: "", password: "" });
+          setStatus(ENUM.SUBMITTED)
+        };
     }
 
     const handleChange = (e) => {
@@ -41,10 +50,11 @@ export default function LoginForm(){
 
     const {username, password} = credentials;
 
-   
+    if(status === ENUM.SUBMITTING)return <p>Loading</p>
+    
     return (
       <form className="login-form" onSubmit={handleSubmit}>
-        {error && (
+        {error && status === ENUM.COMPLETED && (
           <div className="errors">
             <p>Incorrect username or password</p>
           </div>
@@ -73,15 +83,20 @@ export default function LoginForm(){
         <input
           type={"submit"}
           value={"Login"}
+          style={
+            !credentials.username || !credentials.password || status ===ENUM.COMPLETED ? 
+            null : submitLogin
+          }
           className={
-            !credentials.username || !credentials.password ? null : "submit"
+            !credentials.username || !credentials.password || status ===ENUM.COMPLETED ? 
+            null : 'submit-login'
           }
           disabled={
             !credentials.username ||
             !credentials.password ||
             status === ENUM.SUBMITTING
           }
-          style={{ backgroundColor: "#0476D9",color: 'white',fontWeight:'600' }}
+          
         />
       </form>
     );
@@ -94,3 +109,8 @@ const ENUM = {
     SUBMITTED: "SUBMITTED",
     COMPLETED: "COMPLETED"
 }
+
+
+const submitLogin = {
+  backgroundColor: "#049DD9",
+};

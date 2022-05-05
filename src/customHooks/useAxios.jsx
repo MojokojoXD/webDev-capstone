@@ -3,7 +3,7 @@ import { useState,useEffect,useContext } from 'react';
 import { authContext } from '../App';
 import { useNavigate } from 'react-router-dom';
 
-const baseURL = "http:localhost:4000";
+const baseURL = "http://localhost:4000";
 
 export default function useAxios(operation,body){
     const[dashData,setDashData] =useState('')
@@ -47,9 +47,9 @@ export default function useAxios(operation,body){
         try{
             await axios.post(`${baseURL}/login`,{username,password},
             {withCredentials:true});
+
             setError(false);
         }catch(error){
-            console.log('I am here')
             setError(true);
         }finally{
             setloading(false);
@@ -60,12 +60,15 @@ export default function useAxios(operation,body){
     const auth = async () => {
       try {
         const { data:authRes } = await axios.get(`${baseURL}/auth`,{withCredentials:true});
-        setData(authRes)
-        getAuth(true)
+
+        if(authRes === 'redirect'){
+            navigate('/', {replace:true})
+        }else{
+            setData(authRes)
+            getAuth(true)
+        }
       } catch (err) {
           setError(true);
-          getAuth(false);
-          navigate('/',{replace:true})
       } finally{
           setloading(false);
       }
@@ -78,8 +81,8 @@ export default function useAxios(operation,body){
             setData(moduleRes[0])
 
         }catch(err){
-            navigate('/login')
             setError(true);
+            navigate('/', {replace:true})
         }finally{
             setloading(false)
         }
@@ -103,11 +106,14 @@ export default function useAxios(operation,body){
 
     const logOut = async() =>{
         try {
-            await axios.get(`${baseURL}/logout`,{withCredentials:true})
-        
+            const{status} = await axios.get(`${baseURL}/logout`,{withCredentials:true})
+            if(status === 200){
+                navigate('/', {replace:true})
+            }
         } catch (error) {
-            navigate('/login',{replace:true});
             setError(true);
+        } finally{
+            setloading(false)
         }
     }
 

@@ -21,6 +21,7 @@
 
  .navbar{
      height: fit-content;
+     width: fit-content;
      margin-top: 20px;
      box-sizing: 0;
      
@@ -163,11 +164,11 @@
     display: flex;
     align-self: flex-end;
     flex-direction: column;
-    height: 85%;
+    height: 90%;
     width: 500px;
 
     &>div{
-        height: 50%;
+        height: 45%;
     }
 
 

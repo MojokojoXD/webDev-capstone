@@ -56,7 +56,7 @@ session: true }), login)
 app.use((req,res,next) =>{
     if (req.isAuthenticated()) {
         next();
-    } else res.redirect('/');
+    } else res.sendStatus(401);
 })
 
 
@@ -65,11 +65,11 @@ app.get('/auth', function(req,res){
     
     if(req.isAuthenticated()){
         res.status(200).send(req.user);
-    }else res.redirect('/')
+    }else res.status(200).send('redirect')
 })
 app.get('/logout',(req,res)=>{
     req.logOut();
-    res.redirect('/login');
+    res.sendStatus(200);
 })
 app.get('/modules',getModules);
 app.post('/retrievelessons',getLessons);

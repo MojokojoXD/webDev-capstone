@@ -2,6 +2,7 @@
 import useAxios from "../../customHooks/useAxios";
 import { useState, useReducer } from "react";
 import handlerReducer from "../../customHooks/handlerReducer";
+import Spinner from "../../misc/Spinner";
 
 export default function Register() {
   const [formInput, dispatch] = useReducer(handlerReducer, initialForm);
@@ -18,7 +19,7 @@ export default function Register() {
 
 
   if (error) return <h6>Something went wrong</h6>;
-  if (loading) return <h6>Loading</h6>;
+  if (loading) return <Spinner/>;
   if (status === ENUM.COMPLETED && !serverErr) return <h2>Account created successfully</h2>;
 
   const { fname, lname, DOB, email, city, username, password,fractions,decimals,percentages } = formInput;

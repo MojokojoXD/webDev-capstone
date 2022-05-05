@@ -1,10 +1,13 @@
-.submit{
+.submit-login{
     cursor: pointer;
-    background-color: rgb(162, 162, 162);
+    background-color: $color_3;
+   // background-image: none;
 }
 
-.submit:hover{
-    background-color: $color_2;
+.submit-login:hover{
+    background-color: $primary_color;
+    color: $secondary_color;
+    border: 1px outset white;
 }
 
 

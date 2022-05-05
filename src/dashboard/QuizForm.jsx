@@ -71,17 +71,15 @@ export default function QuizForm({quiz,getToggleButton}){
         }
     }
 
-
+    console.log(quiz)
     return (
         begin ? 
                 <div  className="quiz-form">
 
 
                     <h1>Quiz</h1>
-
-
                     <form onSubmit={(e)=>handleSubmit(e,index)} >
-                        <p><span style={{marginLeft: '0'}}><GrIndicator/> </span>{quiz[index].question}.</p>
+                        <p><span style={{marginLeft: '0'}}>{index + 1}. </span>{quiz[index].question}.</p>
                         <label htmlFor='option1'>
                         <input type={'radio'} id='option1' name='multiChoice' id={quiz[index].option1}
                         onChange={(e)=>setRadioValue(e.target.id)}

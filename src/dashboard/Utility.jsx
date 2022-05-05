@@ -23,7 +23,7 @@ export function Utility({module}){
              unmountOnExit
             >
                 <div className='calculator-div'>
-                    <h3>MojoCalc&trade; <span>Powered by Mojo Inc&reg;</span></h3>
+                    <h3>MojoCalc&trade; <span>Powered by NASA&reg;</span></h3>
                     <Calculator/>
                 </div>
             </CSSTransition>

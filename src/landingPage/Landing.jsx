@@ -7,7 +7,7 @@ export default function Landing(){
     return(
         <section id='landing'>
           <div className="main-landing">
-            <Link to='/'>
+            <Link to='/home'>
                 <img src={logo} alt='logo' className='logo'/>
             </Link>
             <Nav option={''} params={''}/>

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgb(255, 255, 255); display: block; shape-rendering: auto;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: none; display: block; shape-rendering: auto;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
 <g transform="translate(50 50)">
   <g transform="scale(0.7)">
     <g transform="translate(-50 -50)">
       <g>
-        <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" values="0 50 50;360 50 50" keyTimes="0;1" dur="0.8064516129032259s"></animateTransform>
-        <path fill-opacity="0.8" fill="#bf0436" d="M50 50L50 0A50 50 0 0 1 100 50Z"></path>
+        <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" values="0 50 50;360 50 50" keyTimes="0;1" dur="0.3731343283582089s"></animateTransform>
+        <path fill-opacity="1" fill="#bf0436" d="M50 50L50 0A50 50 0 0 1 100 50Z"></path>
       </g>
       <g>
-        <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" values="0 50 50;360 50 50" keyTimes="0;1" dur="1.0752688172043012s"></animateTransform>
-        <path fill-opacity="0.8" fill="#d9a404" d="M50 50L50 0A50 50 0 0 1 100 50Z" transform="rotate(90 50 50)"></path>
+        <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" values="0 50 50;360 50 50" keyTimes="0;1" dur="0.49751243781094523s"></animateTransform>
+        <path fill-opacity="1" fill="#d9a404" d="M50 50L50 0A50 50 0 0 1 100 50Z" transform="rotate(90 50 50)"></path>
       </g>
       <g>
-        <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" values="0 50 50;360 50 50" keyTimes="0;1" dur="1.6129032258064517s"></animateTransform>
-        <path fill-opacity="0.8" fill="#0476d9" d="M50 50L50 0A50 50 0 0 1 100 50Z" transform="rotate(180 50 50)"></path>
+        <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" values="0 50 50;360 50 50" keyTimes="0;1" dur="0.7462686567164178s"></animateTransform>
+        <path fill-opacity="1" fill="#0476d9" d="M50 50L50 0A50 50 0 0 1 100 50Z" transform="rotate(180 50 50)"></path>
       </g>
       <g>
-        <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" values="0 50 50;360 50 50" keyTimes="0;1" dur="3.2258064516129035s"></animateTransform>
-        <path fill-opacity="0.8" fill="#000000" d="M50 50L50 0A50 50 0 0 1 100 50Z" transform="rotate(270 50 50)"></path>
+        <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" values="0 50 50;360 50 50" keyTimes="0;1" dur="1.4925373134328357s"></animateTransform>
+        <path fill-opacity="1" fill="#000000" d="M50 50L50 0A50 50 0 0 1 100 50Z" transform="rotate(270 50 50)"></path>
       </g>
     </g>
   </g>

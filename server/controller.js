@@ -27,9 +27,8 @@ module.exports = {
       fname,
       lname,
       city,
-      country,
+      state,
       email,
-      dob,
       username,
       fractions,
       decimals,
@@ -51,8 +50,8 @@ module.exports = {
           bcrypt.hash(password, saltRounds, function (err, hash) {
             sequelize
               .query(
-                `INSERT INTO users(fname,lname,email,dob,city,country)
-                VALUES(lower('${fname}'),lower('${lname}'),'${email}',10,'${city}','${country}');
+                `INSERT INTO users(fname,lname,email,city,state)
+                VALUES(lower('${fname}'),lower('${lname}'),'${email}','${city}','${state}');
 
                 INSERT INTO credentials(user_id,username,passcode)
                 SELECT user_id, lower('${username}'),'${hash}'

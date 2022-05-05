@@ -104,7 +104,7 @@ export default function Register() {
             onFocus={(e) => e.target.select()}
             value={lname}
           />
-          <input
+          {/* <input
             type={"date"}
             id="DOB"
             name="DOB"
@@ -115,7 +115,7 @@ export default function Register() {
             pattern="\d{2}-\d{2}-\d{4}"
             min={"2009-01-01"}
             max={"2022-01-01"}
-          />
+          /> */}
           <input
             type={"email"}
             id="email"
@@ -135,15 +135,15 @@ export default function Register() {
             onFocus={(e) => e.target.select()}
             value={city}
           />
-          <select id="country" onChange={handleChange}>
-            <option value={""} placeholder="country">
-              country
+          <select id="state" onChange={handleChange}>
+            <option value={""} placeholder="state">
+              state
             </option>
             {data.map((obj) => {
-              const { common } = obj.name;
+              const { state_name } = obj;
               return (
-                <option key={common} value={common}>
-                  {common}
+                <option key={state_name} value={state_name}>
+                  {state_name}
                 </option>
               );
             })}
@@ -211,7 +211,7 @@ export default function Register() {
   );
 }
 
-let operation = "countries";
+let operation = "states";
 
 const ENUM = {
   IDLE: "IDLE",
@@ -225,7 +225,6 @@ const ENUM = {
 const initialForm = {
   fname: "",
   lname: "",
-  DOB: "",
   email: "",
   city: "",
   country: "",
@@ -240,10 +239,9 @@ const getError = (inputObj, next, confirmation) => {
   const {
     fname,
     lname,
-    DOB,
     email,
     city,
-    country,
+    state,
     username,
     password,
     fractions,
@@ -254,10 +252,9 @@ const getError = (inputObj, next, confirmation) => {
   const errors = {};
   if (!fname) errors.fname = "First name missing";
   if (!lname) errors.lname = "Last name missing";
-  if (!DOB) errors.DOB = "Date of birth missing";
   if (!email) errors.email = "Email missing";
   if (!city) errors.city = "City missing";
-  if (!country) errors.country = "Country missing";
+  if (!state) errors.state = "State missing";
 
   
 

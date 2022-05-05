@@ -14,12 +14,18 @@ export default function useAxios(operation,body){
     const {getAuth} = useContext(authContext);
     const navigate = useNavigate();
 
-    const getCountries = async() => {
+    const getStates = async() => {
         try{
-            let {data: countries} = await axios.get("https://restcountries.com/v3.1/all?fields=name");
-    
-            countries.sort((a,b) => a.name.common.localeCompare(b.name.common));
-            setData(countries);
+            const { data:states } = await axios({
+              method: "get",
+              url: "https://www.universal-tutorial.com/api/states/United States",
+              headers: {
+                Authorization:
+                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJfZW1haWwiOiJrd2Fkd29uZWVyQGdtYWlsLmNvbSIsImFwaV90b2tlbiI6ImhndGo4TEJFMHBMaG9oTHRCNTlKUWpISUxrNHZEUHQ1VUw3cFdQMi05MFRjMDRCNEs1M09vMm94VVVzTElQRnhiZmMifSwiZXhwIjoxNjUxODU4NDMzfQ.xRpKUP-xYZSrs8Vq9rN8gCIpaeZnfuT4Pa3B2CSrY30",
+                Accept: "application/json",
+              },
+            });
+            setData(states);
             
         }catch(err){
             setError(true)
@@ -135,8 +141,8 @@ export default function useAxios(operation,body){
     
 
     useEffect(() => {
-        if (operation === "countries"){
-            getCountries();
+        if (operation === "states"){
+            getStates();
         }else if(operation === 'register'){
             register();
         }
